@@ -1,1 +1,1 @@
-Select all columns from the EMPLOYEES table.
+Select all columns from the EMPLOYEES table.   1* select * from employees 
