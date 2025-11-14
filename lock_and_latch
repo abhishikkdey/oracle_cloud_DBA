@@ -1,0 +1,26 @@
+SQL> create user sha100 identified by sha;
+
+User created.
+
+SQL> create user sha101 identified by sha;
+
+User created.
+
+SQL> grant create session to sha100,sha101;
+
+Grant succeeded.
+
+SQL> grant select, update on scott.emp to sha100, sha101;
+
+Grant succeeded.
+[oracle@localhost ~]$ sqlplus sha100/sha
+SQL> show user
+USER is "SHA100"
+SQL> 
+SQL> select sid, serial#, username from v$session where username in ('SHA100','SHA101');
+
+       SID    SERIAL# USERNAME
+---------- ---------- --------------------------------------------------------------------------------------------------------------------------------
+	34	21440 SHA100
+	72	24773 SHA101
+
