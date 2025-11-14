@@ -24,3 +24,14 @@ SQL> select sid, serial#, username from v$session where username in ('SHA100','S
 	34	21440 SHA100
 	72	24773 SHA101
 
+SQL> update scott.emp set ename='ALLEN1' where empno=7369; query run by sha100
+SQL> update scott.emp set sal=2000 where empno=7369; query run by sha101 
+
+
+SQL> commit
+  2  ;
+
+ update scott.emp set sal=2000 where empno=7369;
+
+1 row updated.
+
