@@ -1,0 +1,32 @@
+SQL> create role SHAR1 ;
+GRANT create session, create tablespace to SHAR1;
+create user SHAUSR identified by SHAUSR;
+GRANT SHAR1 TO SHAUSR;
+SQL> select privilege from dba_sys_privs where grantee='SHAR1';
+
+PRIVILEGE
+----------------------------------------
+CREATE TABLESPACE
+CREATE SESSION
+SQL> SELECT role FROM dba_roles;
+SQL> select count(*) from dba_roles;
+
+  COUNT(*)
+----------
+	94
+select * from dba_profiles where profile='DEFAULT';
+create profile SHA_PR LIMIT
+  2  	FAILED_LOGIN_ATTEMPTS 3
+  3  	PASSWORD_LIFE_TIME 60
+  4  	;
+
+Profile created.
+SQL> CREATE PROFILE SHA_PR1
+  2  LIMIT PASSWORD_GRACE_TIME 10;
+CREATE PROFILE SHA_PR2 LIMIT
+  2  SESSIONS_PER_USER UNLIMITED;
+SQL> alter user SHAUSR profile SHA_PR;
+
+User altered.
+
+
