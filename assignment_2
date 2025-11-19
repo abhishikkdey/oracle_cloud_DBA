@@ -1,0 +1,48 @@
+SQL> select username, account_status
+  2  from dba_users;
+USERNAME															 ACCOUNT_STATUS
+-------------------------------------------------------------------------------------------------------------------------------- --------------------------------
+SYS																 OPEN
+SYSTEM																 OPEN
+OUTLN																 LOCKED
+SYS$UMF 															 LOCKED
+OJVMSYS 															 LOCKED
+LBACSYS 															 LOCKED
+XS$NULL 															 EXPIRED & LOCKED
+GSMADMIN_INTERNAL														 LOCKED
+DBSFWUSER															 LOCKED
+DBSNMP																 LOCKED
+APPQOSSYS															 LOCKED
+GGSYS																 LOCKED
+XDB																 LOCKED
+WMSYS																 LOCKED
+MDSYS																 LOCKED
+OLAPSYS 															 LOCKED
+DVSYS																 LOCKED
+DVF																 LOCKED
+ANONYMOUS															 EXPIRED & LOCKED
+CTXSYS																 EXPIRED & LOCKED
+HR																 EXPIRED & LOCKED
+AD2																 OPEN
+SCOTT																 OPEN
+SHA_1																 OPEN
+SHA100																 OPEN
+
+
+SQL> alter user SHAUSR account lock;
+SQL> alter user SHAUSR account unlock;
+
+User altered.
+SQL> select username, default_tablespace from dba_users where user='ad1';
+
+SQL> select * from dba_sys_privs where user='SHAUSR';
+
+no rows selected
+
+SQL> select * from dba_sys_privs where user='AD1';
+
+no rows selected
+SQL> SELECT OWNER,table_name, privilege from dba_tab_privs where user='SHAUSR';
+
+SQL> SELECT GRANTED_ROLE FROM DBA_ROLE_PRIVS WHERE GRANTEE='SHAUSR';
+SHA101			
