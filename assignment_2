@@ -45,4 +45,5 @@ no rows selected
 SQL> SELECT OWNER,table_name, privilege from dba_tab_privs where user='SHAUSR';
 
 SQL> SELECT GRANTED_ROLE FROM DBA_ROLE_PRIVS WHERE GRANTEE='SHAUSR';
-SHA101			
+SHA101
+SELECT role FROM dba_roles where user='SHAUSR';
