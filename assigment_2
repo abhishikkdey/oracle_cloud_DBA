@@ -29,4 +29,8 @@ SQL> alter user SHAUSR profile SHA_PR;
 
 User altered.
 
+SQL> revoke SHAR1 from SHAUSR;
+
+Revoke succeeded.
+
 
