@@ -56,4 +56,46 @@ OK (1260 msec)
 
 SQL> @?/rdbms/admin/utlsampl.sql
 
+[oracle@localhost ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Nov 21 22:38:34 2025
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> alter user scott identified by tiger account unlock;
+
+User altered.
+
+SQL> 
+SQL> conn scott/tiger
+Connected.
+SQL> 
+SQL> conn / as sysdba
+Connected.
+SQL> select name from v$database;
+
+NAME
+---------
+PROD1
+SQL> select name from v$database;
+
+NAME
+---------
+ORCL
+SQL> create public database link dblink connect to scott identified by tiger using 'orcl';
+
+Database link created.
+SQL> select sysdate from dual;
+
+SYSDATE
+---------
+21-NOV-25
+
+
 
